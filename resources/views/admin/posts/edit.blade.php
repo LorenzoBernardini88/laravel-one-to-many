@@ -20,6 +20,22 @@
         <label for="post_date">Date</label>
         <input  type="date" class="form-control" name="post_date">
     </div>
+    <div class="form-group col-md-2">
+        <label>Categoria</label>
+        <select name="category_id"
+                class="form-controll @error('category_id') is-invalid @enderror">
+            <option value=""> -- seleziona categoria -- </option>
+            @foreach($catogries as $category )
+                <option value="{{$category->id}}"
+                    {{$category->id == old('category_id',$post->category_id)? 'selected': ''}}>
+                    {{$category->name}}
+                </option>
+            @endforeach
+        </select>
+        @error('category_id')
+        <div class="invalid-feedback">{{$message}}</div>
+        @enderror
+    </div>
     <button type="submit" class="btn btn-primary">Salva</button>
 </form>
 @if ($errors->any())
@@ -33,3 +49,6 @@
 @endif
 
 @endsection
+
+
+        
