@@ -25,7 +25,7 @@
         <select name="category_id"
                 class="form-controll @error('category_id') is-invalid @enderror">
             <option value=""> -- seleziona categoria -- </option>
-            @foreach($catogries as $category )
+            @foreach($categories as $category )
                 <option value="{{$category->id}}"
                     {{$category->id == old('category_id',$post->category_id)? 'selected': ''}}>
                     {{$category->name}}

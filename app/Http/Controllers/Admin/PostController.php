@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    protected $validation = [
+        'title' => 'required|,max:255',
+        'content' => 'required'
+    ];
     /**
      * Display a listing of the resource.
      *
